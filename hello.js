@@ -12,8 +12,13 @@ let x = 6;
 console.log(x,y);
 let mult = (a,b) => a*b;
 console.log('Arrow function: ', mult(x,y));
+
 console.log('(x=6) === 6 comparison:\n',x === 6);
 console.log('(x=6) == 6 comparison:\n',x == 6);
+let mn = "6";
+console.log('more comparisons:\n');
+console.log('(x=6) === (mn = \"6\") comparison:\n',x === mn);
+console.log('(x=6) == (mn = \"6\") comparison:\n',x == mn);
 const arr = [1, 3, "pepe", y];
 console.log('typeof arr:\n', typeof(arr));
 console.log('for of loop prints the array:\n');
