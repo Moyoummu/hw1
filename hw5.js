@@ -44,9 +44,6 @@
     //console.log(b.material);
 
     //балуюсь со строкой
-    String.prototype.printer = function(){
-        console.log(this);
-    }
     String.prototype.reverse = function(){
         a = this.split("").reverse().join("");
         console.log(a)
