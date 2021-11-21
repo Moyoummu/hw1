@@ -3,19 +3,19 @@
 //Создаем 'класс' при помощи функции
 {
     console.log('class creation via functions:\n');
-    function _open(){
+    /*function _open(){
         console.log('The box has been opened\n');
-    }
+    }*/
     function box1(width, height, depth){
         this.width = width;
         this.height = height;
         this.depth = depth;
         this.material = "cardboard";
         this.name = this;
-        this.kek = _open;
+        this.cos = Math.cos(180*depth/Math.PI); //Метод чужого объекта
     }
     let a = new box1("50", "50", "50");
-    console.log('a:\t', a.width, a.material);
+    console.log('a:\t', a.width, a.material, a.cos);
     function pizzabox(width, height, depth, brand){
         box1.call(this, width, height, depth);
         this.brand = brand; 
@@ -27,8 +27,7 @@
         console.log('yep');
     else 
         console.log('nop');*/
-    
-    b.kek(); // используем чужой метод
+    b.brand
 
     console.log('b:\t', b.brand, b.height, b.material, '\na:\t', a.height);
     Object.defineProperty(pizzabox, 'material', {
@@ -96,4 +95,9 @@
     john.sayHi(this.name);
     john.kills_dogs = true;
     console.log(john.kills_dogs);
+    function print_input() {
+        var Str = [].join.call(arguments, ';');
+        console.log(Str);
+    }
+    print_input(1337, 228, "red");
 }
