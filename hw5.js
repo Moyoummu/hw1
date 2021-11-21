@@ -11,7 +11,6 @@
         this.height = height;
         this.depth = depth;
         this.material = "cardboard";
-        this.name = this;
         this.cos = Math.cos(180*depth/Math.PI); //Метод чужого объекта
     }
     let a = new box1("50", "50", "50");
@@ -58,6 +57,16 @@
             this.name = name;
             this.fav_food = food;
             this.habitat = "wild environment"
+            this._alive = true;
+            this.#invincible = false;
+        }
+        set alive(check){
+            if (check == false)
+                check = true;
+            this._alive = check;
+        }
+        get alive(){
+            return this._alive;
         }          
     }
 
@@ -67,19 +76,9 @@
         constructor(name, food, job){
             super(name, food);
             this.job = job;
-            this._kills_dogs = false;
-        }
-        set kills_dogs(value)
-        {
-            if (value == true) console.log(this.name, 'doesn\'t kill dogs!');
-            this._kills_dogs = this._kills_dogs;
-        }
-        get kills_dogs(){
-            return this._kills_dogs;
         }
     }
     let john = new human("John Wick", "wtf he just shoots people", "killer")
-    Object.assign(john, human);
     delete john.habitat
     console.log('human:\t', john.name, john.job, john.habitat);
     //mixin
@@ -93,11 +92,7 @@
     }
     Object.assign(human.prototype, intro);
     john.sayHi(this.name);
-    john.kills_dogs = true;
-    console.log(john.kills_dogs);
-    function print_input() {
-        var Str = [].join.call(arguments, ';');
-        console.log(Str);
-    }
-    print_input(1337, 228, "red");
+    john.alive = false; // protected prop
+    console.log(john.alive);
+    // выдаст ошибку, т.к. #invincible - private prop для mammal john.#invincible = true;
 }
