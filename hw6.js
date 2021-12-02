@@ -55,14 +55,15 @@ pepescroll.removeEventListener("wheel", frogscrolling);
 //Погружение и всплытие прокрутки 
 
 
-    function scrollAlert(){
+/*    function scrollAlert(){
         alert("You\'ve scrolled into a wrong neighbourhood! " + this.tagName);
     }
     for (let elem of document.querySelectorAll('*')){
     elem.addEventListener("wheel", scrollAlert, {capture: true});
     elem.addEventListener("wheel", scrollAlert);
-    }
-
+    }*/
+    document.addEventListener("wheel", event => alert("You\'ve scrolled into a wrong neighbourhood! " + event.target.tagName), {capture: true}); //погружение
+    document.addEventListener("wheel", event => alert("You\'ve scrolled into a wrong neighbourhood! " + event.target.tagName)); //всплытие
 //Stop propagation 
     function scrollAlert(event){
         alert("You\'ve scrolled into a wrong neighbourhood! " + this.tagName);
