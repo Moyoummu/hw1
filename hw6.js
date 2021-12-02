@@ -46,8 +46,11 @@ console.log(document.querySelector('.krutoi')); //выведет null
 
 //Добавляю и удаляю действие
 let pepescroll = document.querySelector('.scroll');
-pepescroll.addEventListener("wheel", () => alert('Don\'t scroll the frog!'));
-pepescroll.removeEventListener("wheel", () => alert('Don\'t scroll the frog!'));
+function frogscrolling(){
+    alert('Don\'t scroll the frog!');
+}
+pepescroll.addEventListener("wheel", frogscrolling);
+pepescroll.removeEventListener("wheel", frogscrolling);
 
 //Погружение и всплытие прокрутки 
 
@@ -68,7 +71,13 @@ pepescroll.removeEventListener("wheel", () => alert('Don\'t scroll the frog!'));
     }
 //Предотвращение стандартного действия (сделал для перехода по ссылке)
     let goog = document.querySelector('a');
-    console.log(goog);
+    //console.log(goog);
     goog.addEventListener("click", function(event){
         event.preventDefault();
     });
+//Установка, изменение, удаление атрибута слушателя
+    let sad = document.querySelector('#sad');
+    //console.log(sad);
+    sad.setAttribute('onwheel', "alert('sad cutie froggo :(')"); // установил атрибут onwheel
+    sad.setAttribute('onwheel', "alert('nobody cares though')"); // изменил 
+    sad.removeAttribute('onwheel'); // удалил
