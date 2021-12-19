@@ -14,7 +14,7 @@ fetch("7.2.php", {
     return result.json();
 })
 .then((info) => {
-    console.log(info);   
+    console.log(info);     
 })
 .catch(error => {
     console.log('ERROR: ', error.message)
